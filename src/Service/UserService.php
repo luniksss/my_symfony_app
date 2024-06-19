@@ -52,12 +52,6 @@ class UserService implements UserServiceInterface
         $this->userRepository->delete($user);
     }
 
-    // public function uploadForm($id): ?User
-    // {
-    //     $user = $this->userRepository->findById($id);
-    //     return $user;
-    // }
-
     public function editUser(string $id, string $firstName, string $lastName, ?string $middleName, string $gender, ?string $birth_date, string $email, ?string $phone, ?string $newAvatar): void
     {
         $user = $this->userRepository->findById($id);
@@ -90,7 +84,6 @@ class UserService implements UserServiceInterface
                 'avatar_path' => $user->getAvatarPath(),
             ];
         }
-
         return $usersList;
     }
 }

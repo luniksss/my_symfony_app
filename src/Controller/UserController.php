@@ -8,7 +8,6 @@ use App\Service\UserServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class UserController extends AbstractController
 {
@@ -67,7 +66,8 @@ class UserController extends AbstractController
                 $request->get('phone'),
                 $newAvatar,
             );
-        } else {
+        } else 
+        {
             $this->userService->editUser(
                 $request->get('id'),
                 $request->get('first_name'),
@@ -86,13 +86,14 @@ class UserController extends AbstractController
     public function registerUser(Request $request): Response
     {
         $avatarPath = $this->imageService->moveImageToUploads($request->files->get('avatar_path'));
-        $id = $this->userService->registerUser($request->get('first_name'), 
-        $request->get('last_name'), 
-        $request->get('middle_name'), 
-        $request->get('gender'), 
-        $request->get('birth_date'), 
-        $request->get('email'), 
-        $request->get('phone'), $avatarPath);
+        $id = $this->userService->registerUser(
+            $request->get('first_name'), 
+            $request->get('last_name'), 
+            $request->get('middle_name'), 
+            $request->get('gender'), 
+            $request->get('birth_date'), 
+            $request->get('email'), 
+            $request->get('phone'), $avatarPath);
         
         return $this->redirectToRoute('view_user', ['id' => $id], Response::HTTP_SEE_OTHER);    
     }

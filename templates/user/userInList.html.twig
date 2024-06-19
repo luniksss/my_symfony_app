@@ -1,8 +1,9 @@
 <li>
-    <form action="/user/delete/{{ user.id}}" method="post">
-        <a href="{{ path('view_user', {id: user.id}) }}">{{ user.first_name}}</a>
+    <form id="userList" action="/user/delete/{{ user.id}}" method="post">
+        <a class="user__link" href="{{ path('view_user', {id: user.id}) }}">{{ user.first_name}}</a>
         <input type="hidden" name="id" value="{{ user.id}}">
-        <button>Delete User</button>
+        <input type="hidden" name="avatar_path" value="{{ user.avatar_path}}" />
+        <button class="user__buttons">Delete User</button>
     </form>
-    <br><br>
+    <br>
 </li>

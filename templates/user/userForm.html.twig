@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+{% block content %}
+<form id="userForm" action="{% block userForm %}{% endblock %}" method="post" enctype="multipart/form-data">
+    <div class="inputs">
+        <label for="first_name">First Name:</label>
+        <input name="first_name" id="first_name" type="text" value="{% block firstName %}{% endblock %}">
+    </div>
+    <div class="inputs">
+        <label for="last_name">Last Name:</label>
+        <input name="last_name" id="last_name" type="text" value="{% block lastName %}{% endblock %}">
+    </div>
+    <div class="inputs">
+        <label for="middle_name">Middle Name:</label>
+        <input name="middle_name" id="middle_name" type="text" value="{% block middleName %}{% endblock %}">
+    </div>
+    <div class="inputs">
+        <label for="gender">Gender:</label>
+        <input name="gender" id="gender" type="text" value="{% block gender %}{% endblock %}">
+    </div>
+    <div class="inputs">
+        <label for="birth_date">Birth Date:</label>
+        <input name="birth_date" id="birth_date" type="date" value="{% block birthDay %}{% endblock %}">
+    </div>
+    <div class="inputs">
+        <label for="email">Email:</label>
+        <input name="email" id="email" type="text" value="{% block email %}{% endblock %}">
+    </div>
+    <div class="inputs">
+        <label for="phone">Phone:</label>
+        <input name="phone" id="phone" type="text" value="{% block phone %}{% endblock %}">
+    </div>
+    <div class="inputs">
+        <label for="avatar_path">Avatar Path:</label>
+        <input name="avatar_path" id="avatar_path" type="file" accept="image/png, image/jpeg, image/gif">
+    </div>
+    {% block currentAvatar %}{% endblock %}
+    {% block hiddenInputs %}{% endblock %}
+    <button class="buttons" type="submit">Submit</button>
+</form>
+{% endblock %}

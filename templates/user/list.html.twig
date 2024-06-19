@@ -1,10 +1,15 @@
 {% extends "base.html.twig" %}
 {% block title %}User List{% endblock %}
 {% block content %}
-<h1>Users Count: {{ user_list|length }}</h1>
-<ul>
-   {% for user in user_list %}
-       {% include "user/userInList.html.twig" with user %}
-   {% endfor %}
-</ul>
+<div class="user">
+    <h1>Users Count: {{ user_list|length }}</h1>
+    <ul>
+    {% for user in user_list %}
+        {% include "user/userInList.html.twig" with user %}
+    {% endfor %}
+    </ul>
+    <form action="/user/">
+        <button class="user__buttons">New User</button>
+    </form>
+</div>
 {% endblock %}

@@ -25,7 +25,8 @@ class ImageService implements ImageServiceInterface
         $fileType = $fileInfo->getMimeType();
         $fileName = $fileInfo->getClientOriginalName();
         $imageExt = self::ALLOWED_MIME_TYPES_MAP[$fileType] ?? null;
-        if (!$imageExt) {
+        if (!$imageExt) 
+        {
             throw new \InvalidArgumentException("File '$fileName' has non-image type '$fileType'");
         }
         $destFileName = uniqid('image', true) . $imageExt;
@@ -47,7 +48,8 @@ class ImageService implements ImageServiceInterface
         $fileName = $fileInfo->getClientOriginalName();
         $destPath = $this->getUploadPath($destFileName);
         $srcPath = $fileInfo->getRealPath();
-        if (!@move_uploaded_file($srcPath, $destPath)) {
+        if (!@move_uploaded_file($srcPath, $destPath)) 
+        {
             throw new \RuntimeException("Failed to upload file $fileName");
         }
    
