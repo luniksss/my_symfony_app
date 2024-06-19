@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+{% block title %}User List{% endblock %}
+{% block content %}
+<h1>Users Count: {{ user_list|length }}</h1>
+<ul>
+   {% for user in user_list %}
+       {% include "user/userInList.html.twig" with user %}
+   {% endfor %}
+</ul>
+{% endblock %}

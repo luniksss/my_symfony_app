@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block title %}User Profile{% endblock %}
+{% block content %}
+<img style="max-width: 300px; max-height: 300px" src="/uploads/{{user.getAvatarPath()}}">
+<p>Id: {{ user.getUserId()}}</p>
+<p>First Name: {{ user.getFirstName() }}</p>
+<p>Last Name: {{ user.getLastName() }}</p>
+<p>Middle Name: {{ user.getMiddleName() }}</p>
+<p>Gender: {{ user.getGender() }}</p>
+<p>Birth Date: {{ user.getBirthDate()}}</p>
+<p>Email: {{ user.getEmail()}}</p>
+<p>Phone: {{ user.getPhone()}}</p>
+<p>Avatar Path: {{ user.getAvatarPath()}}</p>
+<form action="/user/list">
+    <button>User list</button>
+</form>
+<br>
+<form action="/user/update/{{ user.getUserId() }}" method="post">
+    <input type="hidden" name="id" value="{{ user.getUserId()}}" />
+    <button>Update User</button>
+</form>
+<br>
+<form action="/user/delete/{{ user.getUserId()}}" method="post">
+    <input type="hidden" name="id" value="{{ user.getUserId()}}" />
+    <input type="hidden" name="avatar_path" value="{{user.getAvatarPath()}}" />
+    <button>Delete User</button>
+</form>
+{% endblock %}
